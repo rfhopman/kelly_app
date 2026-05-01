@@ -49,17 +49,4 @@ The Kelly Criterion maximizes the logarithm of wealth.
 - **Fractional Kelly:** Reduces the suggested bet size to protect against 'Black Swan' events or inaccurate probability estimates.
 """)
 
-# Specific logic for Iron Condors
-st.subheader("Iron Condor Specifics")
-wing_width = st.number_input("Wing Width ($)", value=5.0)
-credit_received = st.number_input("Credit Received ($)", value=0.25)
 
-# Calculate Risk and b
-risk_per_spread = wing_width - credit_received
-b_ratio = credit_received / risk_per_spread
-
-# Update the Win Probability for 15-Delta
-# Short Delta 0.15 on both sides = ~85% win rate
-win_prob_ic = 85.00
-
-ic_kelly = calculate_kelly(win_prob_ic, b_ratio)
